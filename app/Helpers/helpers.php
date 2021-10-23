@@ -40,3 +40,20 @@
 			return $slug;
 		}
 	}
+
+
+	if(!function_exists('is_admin')){
+		function is_admin($userRole){
+			$roles = Auth::user()->roles;
+			if(isset($roles)){
+				foreach($roles as $role){
+					
+					if($userRole == $role->display_name){
+						return true;
+					}
+					return false;
+				}
+			}
+			return false;
+		}
+	}

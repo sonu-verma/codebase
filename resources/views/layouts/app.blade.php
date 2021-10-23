@@ -86,8 +86,10 @@
             @if(!Auth::guest())
             <div class="col-md-3">
                 <ul class="list-group">
+                    @if(is_admin('Admin') == true || is_admin('Manager') == true)
                     <li class="list-group-item {{ Request::segment(2) == 'users'?'active':''  }}"><a class="links" href="{{ route('users.index') }}">Users</a></li>
                     <li class="list-group-item {{ Request::segment(2) == 'roles'?'active':''  }}"><a class="links" href="{{ route('admin.roles') }}">Roles</a></li>
+                    @endif
                     <li class="list-group-item {{ Request::segment(2) == 'codesnipt'?'active':''  }}"><a class="links" href="{{ route('codesnipt.index') }}">Code Snipts</a></li>  
                 </ul>
             </div>    

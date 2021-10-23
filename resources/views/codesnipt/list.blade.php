@@ -25,31 +25,28 @@
         <!--end of col-->
     </div>
     <div id="products" class="row view-group">
-        @if(isset($codesnipts))
+        @if(isset($codesnipts) && count($codesnipts) > 0)
             @foreach($codesnipts as $codesnipt)
-            <div class="item col-xs-4 col-lg-4 grid-group-item list-group-item">
-                <div class="thumbnail card">
-                    <div class="caption card-body">
-                        <h4 class="group card-title inner list-group-item-heading">{{ $codesnipt->title }}</h4>
-                        <p class="group inner list-group-item-text">{{ $codesnipt->description }}</p>
-                        <p class="group inner list-group-item-text">{!! htmlspecialchars_decode($codesnipt->code_snipt) !!}</p>
-                        <div class="row">
-                            <div class="col-xs-12 col-md-6">
-                                <p class="lead">{{ date('d M Y', strtotime($codesnipt->created_at)) }} </p>
+                <div class="item col-xs-4 col-lg-4 grid-group-item list-group-item">
+                    <div class="thumbnail card">
+                        <div class="caption card-body">
+                            <h4 class="group card-title inner list-group-item-heading">{{ $codesnipt->title }}</h4>
+                            <p class="group inner list-group-item-text">{{ $codesnipt->description }}</p>
+                            <p class="group inner list-group-item-text">{!! htmlspecialchars_decode($codesnipt->code_snipt) !!}</p>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <p class="lead">{{ date('d M Y', strtotime($codesnipt->created_at)) }} </p>
+                                </div>
+                            
                             </div>
-                        
                         </div>
                     </div>
                 </div>
-            </div>
            @endforeach 
            {{ $codesnipts->links() }}
         @else
-            <div class="row">
-                <h1>No Data Found.</h1>
-            </div>
+               <h4>No Data Found.</h4>
         @endif
-        
     </div>
 </div>
 @endsection

@@ -20,6 +20,14 @@ class CreateRolesTable extends Migration
             $table->boolean('status')->default(1);
             $table->timestamps();
         });
+
+        DB::table('roles')->insert(
+            array(
+                'name' => 'admin',
+                'display_name' => 'Admin',
+                'status' => 1
+                )
+        );
     }
 
     /**

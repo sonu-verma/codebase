@@ -70,11 +70,10 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-
-        UserRole::create([
-            'user_id' => $user->id,
-            'role_id' => 3
-        ]);
+        // UserRole::create([
+        //     'user_id' => $user->id,
+        //     'role_id' => 3
+        // ]);
         return $user;
     }
 }
